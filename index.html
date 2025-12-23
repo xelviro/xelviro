@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XELVIRO</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  /* RESET */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Poppins', sans-serif; background:#0d0d0d; color:#f2f2f2; line-height:1.7; scroll-behavior:smooth; }
+
+  a { color:#1abc9c; text-decoration:none; }
+
+  /* Header / Hero */
+  header {
+    text-align:center; 
+    padding:140px 20px; 
+    background: linear-gradient(135deg,#0f0f0f,#1a1a1a); 
+    background-size: 400% 400%; 
+    animation: gradientBG 15s ease infinite;
+  }
+  @keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+  header img { width:140px; height:auto; margin-bottom:25px; border-radius:12px; }
+  header h1 { font-size:54px; letter-spacing:4px; margin-bottom:15px; color:#1abc9c; }
+  header p { font-size:20px; color:#aaaaaa; }
+
+  section { max-width:900px; margin:50px auto; padding:0 20px; opacity:0; transform:translateY(50px); transition: all 0.8s ease; }
+  section.visible { opacity:1; transform:translateY(0); }
+
+  h2 { font-size:32px; margin-bottom:20px; border-bottom:2px solid #333; display:inline-block; padding-bottom:6px; }
+
+  /* Card style */
+  .card {
+    background: linear-gradient(145deg, #1b1b1b, #222); 
+    padding:35px; 
+    border-radius:20px; 
+    margin-top:25px; 
+    box-shadow:0 10px 25px rgba(0,0,0,0.7); 
+    transition: transform 0.4s, box-shadow 0.4s;
+  }
+  .card:hover { transform: translateY(-8px); box-shadow:0 15px 35px rgba(0,0,0,0.8); }
+
+  /* Profile images */
+  .profile-img {
+    width:160px; 
+    height:160px; 
+    border-radius:50%; 
+    display:block; 
+    margin:0 auto 25px; 
+    object-fit:cover; 
+    border:4px solid #1abc9c;
+  }
+
+  h3 { text-align:center; color:#1abc9c; font-size:24px; margin-bottom:15px; }
+  p { color:#cccccc; font-size:16px; line-height:1.7; text-align:center; }
+
+  footer { text-align:center; padding:50px 20px; background:#111; font-size:14px; color:#777; }
+
+  /* CTA button */
+  .cta-btn {
+    display:inline-block;
+    padding:12px 30px;
+    background:#1abc9c;
+    color:#000;
+    font-weight:600;
+    border-radius:30px;
+    margin-top:20px;
+    transition: transform 0.3s, background 0.3s;
+  }
+  .cta-btn:hover { transform:scale(1.05); background:#16a085; }
+
+  @media(max-width:600px){ header h1{font-size:36px;} header p{font-size:16px;} h2{font-size:26px;} .profile-img{width:120px; height:120px;} }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://i.ibb.co/KcJxsb1T/79-DCBB81-233-C-49-B0-8-C04-6457-B55-FFA78.png" alt="XELVIRO Logo">
+  <h1>XELVIRO</h1>
+  <p>A Creative Company | Innovation & Originality</p>
+  <a href="#contact" class="cta-btn">Get in Touch</a>
+</header>
+
+<section>
+  <h2>About XELVIRO</h2>
+  <div class="card">
+    <p>
+      XELVIRO is a creative company currently in development. It is built with the vision to do something new, original, and meaningful. 
+      The focus is on creativity, innovation, and long-term value rather than following existing trends.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Vision</h2>
+  <div class="card">
+    <p>
+      XELVIRO aims to explore and develop creative ideas across various fields. 
+      The projects and direction are evolving, open to discussion, experimentation, and growth. 
+      This phase is focused on building a strong foundation for long-term impact.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Founder</h2>
+  <div class="card">
+    <img class="profile-img" src="https://i.ibb.co/rR429p76/IMG-2214.jpg" alt="Kunal">
+    <h3>Kunal</h3>
+    <p>
+      Kunal is a young visionary chasing his dreams with passion and determination.  
+      He founded XELVIRO to build a platform where creativity, originality, and long-term vision come together.  
+      His journey reflects ambition, innovation, and the courage to push boundaries in the creative world.
+    </p>
+  </div>
+</section>
+
+<section>
+  <h2>Co-Founders</h2>
+  <div class="card">
+    <img class="profile-img" src="https://iili.io/fGnrMpj.md.jpg" alt="Abhijit">
+    <h3>Abhijit</h3>
+    <p>Abhijit, a co-founder of XELVIRO, brings passion and creativity to the team.</p>
+  </div>
+  <div class="card">
+    <img class="profile-img" src="https://iili.io/fGn8nHv.jpg" alt="Sayan">
+    <h3>Sayan</h3>
+    <p>Sayan, a charming co-founder of XELVIRO, contributes vision and innovation to the projects.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="card">
+    <p>Email: <a href="mailto:shrisantcntc21@gmail.com">shrisantcntc21@gmail.com</a><br>
+    Instagram: <a href="https://instagram.com/xelviro" target="_blank">@xelviro</a></p>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 XELVIRO. All rights reserved.
+</footer>
+
+<script>
+  // Scroll reveal effect
+  const sections = document.querySelectorAll('section');
+  window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if(sectionTop < triggerBottom){
+        section.classList.add('visible');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
