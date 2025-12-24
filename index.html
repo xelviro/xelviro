@@ -17,7 +17,6 @@
   --violet:#9b5cff;
 }
 
-/* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
@@ -27,33 +26,18 @@ body{
   overflow-x:hidden;
 }
 
-/* SCROLL PROGRESS */
+/* PROGRESS */
 #progress{
-  position:fixed;
-  top:0;left:0;
-  height:3px;
-  width:0%;
+  position:fixed;top:0;left:0;height:3px;width:0%;
   background:linear-gradient(90deg,var(--neon),var(--violet));
   z-index:9999;
-}
-
-/* CURSOR GLOW */
-.cursor{
-  position:fixed;
-  width:26px;height:26px;
-  border-radius:50%;
-  pointer-events:none;
-  background:radial-gradient(circle,rgba(94,252,255,.6),transparent 70%);
-  transform:translate(-50%,-50%);
-  z-index:999;
 }
 
 /* HERO */
 .hero{
   min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display:grid;
+  place-items:center;
   text-align:center;
   position:relative;
 }
@@ -63,27 +47,26 @@ body{
   width:900px;height:900px;
   background:radial-gradient(circle,var(--violet),transparent 65%);
   filter:blur(180px);
-  opacity:.45;
+  opacity:.4;
 }
 .hero h1{
-  font-size:clamp(64px,10vw,140px);
+  font-size:clamp(64px,11vw,150px);
   font-weight:900;
-  letter-spacing:18px;
-  background:linear-gradient(120deg,var(--neon),#ffffff,var(--violet));
+  letter-spacing:20px;
+  background:linear-gradient(120deg,var(--neon),#fff,var(--violet));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .hero p{
-  margin-top:30px;
+  max-width:720px;
+  margin:35px auto 0;
   font-size:22px;
   color:var(--muted);
-  max-width:700px;
-  margin-inline:auto;
 }
 .hero .status{
-  margin-top:70px;
+  margin-top:80px;
   display:inline-block;
-  padding:18px 60px;
+  padding:18px 64px;
   border-radius:999px;
   font-weight:900;
   letter-spacing:3px;
@@ -91,98 +74,90 @@ body{
   color:#000;
   background:linear-gradient(135deg,#ffe66d,#ffb703);
   box-shadow:0 0 50px rgba(255,183,3,.7);
-  animation:pulse 2.2s infinite;
-}
-
-@keyframes pulse{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.08)}
-  100%{transform:scale(1)}
 }
 
 /* SECTIONS */
 section{
-  max-width:1200px;
+  max-width:1300px;
   margin:200px auto;
-  padding:0 30px;
+  padding:0 40px;
   opacity:0;
-  transform:translateY(100px);
+  transform:translateY(90px);
   transition:1.4s cubic-bezier(.19,1,.22,1);
 }
 section.show{opacity:1;transform:none}
 
-/* TITLES */
-.title{
-  display:flex;
+/* SPLIT LAYOUT */
+.split{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:120px;
   align-items:center;
-  gap:25px;
-  margin-bottom:80px;
 }
-.title span{
-  font-size:12px;
-  letter-spacing:5px;
-  color:var(--neon);
-}
-.title h2{
-  font-size:54px;
+.split.reverse{direction:rtl}
+.split.reverse > *{direction:ltr}
+
+h2{
+  font-size:56px;
   font-weight:900;
 }
+.label{
+  font-size:12px;
+  letter-spacing:4px;
+  color:var(--neon);
+  margin-bottom:25px;
+  display:block;
+}
+.text p{
+  font-size:19px;
+  line-height:2.1;
+  color:#d4d9e3;
+}
 
-/* GLASS PANEL */
-.panel{
-  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+/* GLASS BLOCK */
+.block{
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
   border-radius:50px;
   padding:80px;
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,.08),
     0 60px 140px rgba(0,0,0,.95);
 }
-.panel p{
-  font-size:19px;
-  line-height:2.1;
-  color:#d4d9e3;
-}
 
-/* TEAM */
-.team{
+/* FOUNDERS */
+.founders{
+  display:flex;
+  flex-direction:column;
+  gap:160px;
+}
+.person{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-  gap:70px;
+  grid-template-columns:420px 1fr;
+  gap:90px;
+  align-items:center;
 }
-.bio{
-  background:var(--panel);
-  border-radius:50px;
-  padding:70px;
-  position:relative;
-  overflow:hidden;
+.person.reverse{
+  grid-template-columns:1fr 420px;
 }
-.bio::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,var(--neon),var(--violet));
-  opacity:.10;
-}
-.bio img{
-  width:160px;height:160px;
-  border-radius:50%;
+.person img{
+  width:100%;
+  border-radius:40px;
   object-fit:cover;
   border:4px solid var(--neon);
-  margin-bottom:35px;
 }
-.bio h3{
-  font-size:28px;
+.person h3{
+  font-size:34px;
   font-weight:800;
 }
-.bio span{
+.person span{
   display:block;
-  margin-bottom:28px;
+  margin:20px 0 35px;
   font-size:12px;
   letter-spacing:4px;
   color:var(--neon);
 }
-.bio p{
-  font-size:16px;
+.person p{
+  font-size:17px;
   line-height:2;
   color:#cfd6e3;
 }
@@ -196,9 +171,12 @@ footer{
 }
 
 /* MOBILE */
-@media(max-width:768px){
-  .title h2{font-size:38px}
-  .panel{padding:50px}
+@media(max-width:900px){
+  .split,.person,.person.reverse{
+    grid-template-columns:1fr;
+    gap:60px;
+  }
+  h2{font-size:40px}
 }
 </style>
 </head>
@@ -206,110 +184,96 @@ footer{
 <body>
 
 <div id="progress"></div>
-<div class="cursor"></div>
 
 <!-- HERO -->
 <div class="hero">
   <div>
     <h1>XELVIRO</h1>
-    <p>
-      A luxury creative venture born from youth, ambition, and the courage
-      to build before permission is given.
-    </p>
-    <div class="status">CURRENTLY UNDER DEVELOPMENT</div>
+    <p>A luxury creative venture built by youth, patience, and fearless ambition.</p>
+    <div class="status">CURRENTLY UNDER DEVELOPMENT! SCROLL DOWN TO KNOW MORE</div>
   </div>
 </div>
 
 <!-- ABOUT -->
 <section>
-  <div class="title">
-    <span>01</span><h2>About</h2>
-  </div>
-  <div class="panel">
-    <p>
-      XELVIRO is not a trend-based brand — it is a long-term vision.
-      Built with patience and intention, it represents a new generation
-      of creators who value originality, depth, and identity over speed.
-      <br><br>
-      Every decision is made with longevity in mind. Every idea is treated
-      as a foundation, not a shortcut.
-    </p>
+  <div class="split">
+    <div class="text">
+      <span class="label">01 • ABOUT</span>
+      <h2>Built With Intention</h2>
+      <p>
+        XELVIRO is not built to impress quickly.  
+        It is built to last.
+        <br><br>
+        Every decision is intentional — from identity to execution.  
+        This is a company designed for long-term relevance, not temporary attention.
+      </p>
+    </div>
+    <div class="block"></div>
   </div>
 </section>
 
 <!-- VISION -->
 <section>
-  <div class="title">
-    <span>02</span><h2>Vision</h2>
-  </div>
-  <div class="panel">
-    <p>
-      The vision of XELVIRO is to quietly grow into something undeniable.
-      To explore creative domains, build meaningful projects, and create
-      work that feels rare, thoughtful, and intentional.
-      <br><br>
-      This is a journey of evolution — learning relentlessly, refining
-      continuously, and never compromising on identity.
-    </p>
+  <div class="split reverse">
+    <div class="text">
+      <span class="label">02 • VISION</span>
+      <h2>Quiet Growth. Real Impact.</h2>
+      <p>
+        XELVIRO grows in silence, learning relentlessly and evolving continuously.
+        <br><br>
+        The vision is to create rare, thoughtful work that speaks without noise
+        and stands without explanation.
+      </p>
+    </div>
+    <div class="block"></div>
   </div>
 </section>
 
 <!-- FOUNDERS -->
 <section>
-  <div class="title">
-    <span>03</span><h2>Founders</h2>
-  </div>
+  <span class="label">03 • FOUNDERS</span>
+  <div class="founders">
 
-  <div class="team">
-
-    <!-- Founder -->
-    <div class="bio">
+    <div class="person">
       <img src="https://i.ibb.co/rR429p76/IMG-2214.jpg">
-      <h3>Kunal</h3>
-      <span>FOUNDER • AGE 19</span>
-      <p>
-        Kunal is a 19-year-old founder who believes that youth is not a weakness,
-        but a strategic advantage. With no shortcuts, no safety net, and no
-        inherited platform, he started XELVIRO driven purely by curiosity,
-        discipline, and ambition.
-        <br><br>
-        His journey is shaped by self-learning, late nights, experimentation,
-        and the refusal to wait for validation. XELVIRO represents his belief
-        that starting early, thinking long-term, and staying patient can turn
-        raw dreams into lasting reality.
-      </p>
+      <div>
+        <h3>Kunal</h3>
+        <span>FOUNDER • AGE 19</span>
+        <p>
+          Kunal is a 19-year-old founder who believes youth is a strategic advantage.
+          With no shortcuts and no inherited platform, he began XELVIRO driven by
+          discipline, curiosity, and patience.
+          <br><br>
+          His journey reflects early mornings, late nights, and the courage to
+          start before being “ready”.
+        </p>
+      </div>
     </div>
 
-    <!-- Co-Founder -->
-    <div class="bio">
+    <div class="person reverse">
+      <div>
+        <h3>Abhijit</h3>
+        <span>CO-FOUNDER</span>
+        <p>
+          Abhijit believes success is earned through consistency and resilience.
+          He focuses on transforming vision into execution while maintaining
+          clarity and balance.
+        </p>
+      </div>
       <img src="https://iili.io/fGnrMpj.md.jpg">
-      <h3>Abhijit</h3>
-      <span>CO-FOUNDER</span>
-      <p>
-        Abhijit is driven by resilience and the desire to build success through
-        consistency rather than hype. He believes progress is earned through
-        action, learning, and persistence.
-        <br><br>
-        At XELVIRO, he focuses on transforming ideas into execution while
-        contributing strategic thinking and grounded perspective to the
-        company’s growth.
-      </p>
     </div>
 
-    <!-- Co-Founder -->
-    <div class="bio">
+    <div class="person">
       <img src="https://iili.io/fGn8nHv.jpg">
-      <h3>Sayan</h3>
-      <span>CO-FOUNDER</span>
-      <p>
-        Sayan brings a forward-thinking mindset and a strong drive for innovation.
-        He believes meaningful success is built through collaboration, patience,
-        and adaptability.
-        <br><br>
-        As a co-founder of XELVIRO, he contributes ideas, creative insight, and
-        long-term thinking, helping shape the brand’s evolving direction and
-        future identity.
-      </p>
+      <div>
+        <h3>Sayan</h3>
+        <span>CO-FOUNDER</span>
+        <p>
+          Sayan brings innovation, adaptability, and a forward-looking mindset.
+          He believes collaboration and patience are the foundations of any
+          meaningful venture.
+        </p>
+      </div>
     </div>
 
   </div>
@@ -320,13 +284,6 @@ footer{
 </footer>
 
 <script>
-/* CURSOR */
-const cursor=document.querySelector(".cursor");
-window.addEventListener("mousemove",e=>{
-  cursor.style.left=e.clientX+"px";
-  cursor.style.top=e.clientY+"px";
-});
-
 /* SCROLL PROGRESS */
 window.addEventListener("scroll",()=>{
   const h=document.documentElement.scrollHeight-window.innerHeight;
