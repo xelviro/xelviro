@@ -3,34 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XELVIRO — Built Young. Built Fearless.</title>
+<title>XELVIRO — A Vision Built Young</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#03040a;
-  --panel:#0b0f1a;
+  --bg:#02030a;
+  --panel:#0b1020;
+  --soft:#11162a;
   --text:#f8fafc;
   --muted:#9aa4b2;
   --neon:#5efcff;
   --violet:#9b5cff;
+  --gold:#ffcc70;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   font-family:'Inter',sans-serif;
-  background:radial-gradient(circle at top,var(--panel),var(--bg) 70%);
+  background:
+    radial-gradient(circle at 10% 10%,#0b1230,transparent 40%),
+    radial-gradient(circle at 90% 20%,#2a0f3a,transparent 45%),
+    var(--bg);
   color:var(--text);
   overflow-x:hidden;
 }
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  padding:22px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:rgba(2,3,10,.55);
+  backdrop-filter:blur(12px);
+  z-index:999;
+}
+nav .brand{
+  font-weight:900;
+  letter-spacing:4px;
+  color:var(--neon);
+}
+nav a{
+  color:var(--muted);
+  margin-left:30px;
+  font-size:14px;
+  text-decoration:none;
+}
+nav a:hover{color:var(--text)}
 
 /* PROGRESS */
 #progress{
   position:fixed;top:0;left:0;height:3px;width:0%;
   background:linear-gradient(90deg,var(--neon),var(--violet));
-  z-index:9999;
+  z-index:1000;
 }
 
 /* HERO */
@@ -39,143 +70,143 @@ body{
   display:grid;
   place-items:center;
   text-align:center;
-  position:relative;
-}
-.hero::before{
-  content:"";
-  position:absolute;
-  width:900px;height:900px;
-  background:radial-gradient(circle,var(--violet),transparent 65%);
-  filter:blur(180px);
-  opacity:.4;
+  padding:0 30px;
 }
 .hero h1{
-  font-size:clamp(64px,11vw,150px);
+  font-size:clamp(70px,12vw,160px);
   font-weight:900;
-  letter-spacing:20px;
+  letter-spacing:22px;
   background:linear-gradient(120deg,var(--neon),#fff,var(--violet));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .hero p{
-  max-width:720px;
-  margin:35px auto 0;
+  max-width:760px;
+  margin:40px auto;
   font-size:22px;
   color:var(--muted);
 }
-.hero .status{
-  margin-top:80px;
-  display:inline-block;
-  padding:18px 64px;
+.hero .badge{
+  padding:18px 60px;
   border-radius:999px;
+  background:linear-gradient(135deg,var(--gold),#ffb703);
+  color:#000;
   font-weight:900;
   letter-spacing:3px;
-  font-size:13px;
-  color:#000;
-  background:linear-gradient(135deg,#ffe66d,#ffb703);
-  box-shadow:0 0 50px rgba(255,183,3,.7);
+  box-shadow:0 0 60px rgba(255,183,3,.6);
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
-  max-width:1300px;
-  margin:200px auto;
-  padding:0 40px;
+  max-width:1400px;
+  margin:220px auto;
+  padding:0 60px;
   opacity:0;
-  transform:translateY(90px);
+  transform:translateY(100px);
   transition:1.4s cubic-bezier(.19,1,.22,1);
 }
 section.show{opacity:1;transform:none}
 
-/* SPLIT LAYOUT */
+.label{
+  font-size:12px;
+  letter-spacing:5px;
+  color:var(--neon);
+  margin-bottom:25px;
+}
+h2{
+  font-size:56px;
+  font-weight:900;
+  margin-bottom:40px;
+}
+
+/* SPLIT */
 .split{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:120px;
   align-items:center;
 }
-.split.reverse{direction:rtl}
-.split.reverse > *{direction:ltr}
 
-h2{
-  font-size:56px;
-  font-weight:900;
-}
-.label{
-  font-size:12px;
-  letter-spacing:4px;
-  color:var(--neon);
-  margin-bottom:25px;
-  display:block;
-}
-.text p{
-  font-size:19px;
-  line-height:2.1;
-  color:#d4d9e3;
-}
-
-/* GLASS BLOCK */
-.block{
-  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
-  border-radius:50px;
-  padding:80px;
+/* GLASS */
+.glass{
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border-radius:60px;
+  padding:90px;
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,.08),
-    0 60px 140px rgba(0,0,0,.95);
+    0 70px 160px rgba(0,0,0,.95);
+}
+.glass p{
+  font-size:19px;
+  line-height:2.1;
+  color:#d5dbea;
+}
+
+/* STATS */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:60px;
+}
+.stat{
+  background:var(--soft);
+  border-radius:40px;
+  padding:50px;
+}
+.stat h3{
+  font-size:42px;
+  color:var(--neon);
+}
+.stat p{
+  margin-top:10px;
+  color:var(--muted);
 }
 
 /* FOUNDERS */
-.founders{
+.people{
   display:flex;
   flex-direction:column;
-  gap:160px;
+  gap:180px;
 }
 .person{
   display:grid;
   grid-template-columns:420px 1fr;
-  gap:90px;
+  gap:100px;
   align-items:center;
 }
-.person.reverse{
-  grid-template-columns:1fr 420px;
-}
+.person.reverse{grid-template-columns:1fr 420px}
 .person img{
   width:100%;
-  border-radius:40px;
-  object-fit:cover;
+  border-radius:45px;
   border:4px solid var(--neon);
 }
-.person h3{
-  font-size:34px;
-  font-weight:800;
-}
+.person h3{font-size:36px}
 .person span{
   display:block;
-  margin:20px 0 35px;
-  font-size:12px;
+  margin:25px 0 40px;
   letter-spacing:4px;
+  font-size:12px;
   color:var(--neon);
 }
 .person p{
   font-size:17px;
-  line-height:2;
-  color:#cfd6e3;
+  line-height:2.1;
+  color:#cfd6e6;
 }
 
 /* FOOTER */
 footer{
+  padding:140px 40px;
   text-align:center;
-  padding:120px 30px;
   color:#777;
-  font-size:14px;
+  background:#02030a;
 }
 
 /* MOBILE */
 @media(max-width:900px){
-  .split,.person,.person.reverse{
-    grid-template-columns:1fr;
-    gap:60px;
-  }
+  nav{padding:20px 30px}
+  .split,.person,.person.reverse{grid-template-columns:1fr}
+  section{padding:0 30px}
   h2{font-size:40px}
 }
 </style>
@@ -185,54 +216,57 @@ footer{
 
 <div id="progress"></div>
 
+<nav>
+  <div class="brand">XELVIRO</div>
+  <div>
+    <a href="#about">About</a>
+    <a href="#vision">Vision</a>
+    <a href="#founders">Founders</a>
+  </div>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
   <div>
     <h1>XELVIRO</h1>
     <p>A luxury creative venture built by youth, patience, and fearless ambition.</p>
-    <div class="status">CURRENTLY UNDER DEVELOPMENT! SCROLL DOWN TO KNOW MORE</div>
+    <div class="badge">CURRENTLY UNDER DEVELOPMENT</div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section>
+<section id="about">
   <div class="split">
-    <div class="text">
-      <span class="label">01 • ABOUT</span>
-      <h2>Built With Intention</h2>
+    <div>
+      <div class="label">01 • ABOUT</div>
+      <h2>Designed to Last</h2>
       <p>
-        XELVIRO is not built to impress quickly.  
-        It is built to last.
-        <br><br>
-        Every decision is intentional — from identity to execution.  
-        This is a company designed for long-term relevance, not temporary attention.
+        XELVIRO is built with restraint, discipline, and long-term thinking.
+        Not a hype brand — but a foundation.
       </p>
     </div>
-    <div class="block"></div>
+    <div class="glass">
+      <p>
+        Every idea at XELVIRO is treated as architecture, not decoration.
+        The goal is not speed — the goal is permanence.
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- VISION -->
+<!-- STATS -->
 <section>
-  <div class="split reverse">
-    <div class="text">
-      <span class="label">02 • VISION</span>
-      <h2>Quiet Growth. Real Impact.</h2>
-      <p>
-        XELVIRO grows in silence, learning relentlessly and evolving continuously.
-        <br><br>
-        The vision is to create rare, thoughtful work that speaks without noise
-        and stands without explanation.
-      </p>
-    </div>
-    <div class="block"></div>
+  <div class="stats">
+    <div class="stat"><h3>19</h3><p>Founder Age</p></div>
+    <div class="stat"><h3>∞</h3><p>Long-Term Vision</p></div>
+    <div class="stat"><h3>0</h3><p>Shortcuts Taken</p></div>
   </div>
 </section>
 
 <!-- FOUNDERS -->
-<section>
-  <span class="label">03 • FOUNDERS</span>
-  <div class="founders">
+<section id="founders">
+  <div class="label">02 • FOUNDERS</div>
+  <div class="people">
 
     <div class="person">
       <img src="https://i.ibb.co/rR429p76/IMG-2214.jpg">
@@ -240,12 +274,9 @@ footer{
         <h3>Kunal</h3>
         <span>FOUNDER • AGE 19</span>
         <p>
-          Kunal is a 19-year-old founder who believes youth is a strategic advantage.
-          With no shortcuts and no inherited platform, he began XELVIRO driven by
-          discipline, curiosity, and patience.
-          <br><br>
-          His journey reflects early mornings, late nights, and the courage to
-          start before being “ready”.
+          Kunal started XELVIRO with nothing but discipline and belief.
+          He represents a generation that starts early, learns fast,
+          and builds quietly.
         </p>
       </div>
     </div>
@@ -255,9 +286,8 @@ footer{
         <h3>Abhijit</h3>
         <span>CO-FOUNDER</span>
         <p>
-          Abhijit believes success is earned through consistency and resilience.
-          He focuses on transforming vision into execution while maintaining
-          clarity and balance.
+          Abhijit focuses on execution, balance, and turning ideas into reality
+          through consistency.
         </p>
       </div>
       <img src="https://iili.io/fGnrMpj.md.jpg">
@@ -269,9 +299,8 @@ footer{
         <h3>Sayan</h3>
         <span>CO-FOUNDER</span>
         <p>
-          Sayan brings innovation, adaptability, and a forward-looking mindset.
-          He believes collaboration and patience are the foundations of any
-          meaningful venture.
+          Sayan brings innovation and long-term thinking,
+          helping shape the future identity of XELVIRO.
         </p>
       </div>
     </div>
@@ -284,15 +313,15 @@ footer{
 </footer>
 
 <script>
-/* SCROLL PROGRESS */
+/* SCROLL */
 window.addEventListener("scroll",()=>{
   const h=document.documentElement.scrollHeight-window.innerHeight;
   document.getElementById("progress").style.width=(scrollY/h)*100+"%";
 });
 
 /* REVEAL */
-const obs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>e.isIntersecting&&e.target.classList.add("show"));
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>x.isIntersecting&&x.target.classList.add("show"))
 },{threshold:.25});
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
 </script>
