@@ -3,256 +3,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XELVIRO – Creative Company</title>
+<title>XELVIRO</title>
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --bg:#040406;
+  --primary:#7cf9ff;
+  --secondary:#9b5cff;
+  --gold:#f5c77a;
+}
+
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
 body{
-  font-family:'Poppins',sans-serif;
-  background:#050505;
-  color:#eaeaea;
+  font-family:'Montserrat',sans-serif;
+  background:radial-gradient(circle at top,#0b0f1a,#040406 60%);
+  color:#fff;
   overflow-x:hidden;
 }
 
-/* ---------- PARTICLE BACKGROUND ---------- */
-canvas{
+/* ===== CURSOR GLOW ===== */
+.cursor{
   position:fixed;
-  top:0;left:0;
-  z-index:-1;
+  width:25px;height:25px;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle,rgba(124,249,255,.6),transparent 70%);
+  transform:translate(-50%,-50%);
+  z-index:999;
 }
 
-/* ---------- HERO ---------- */
-header{
+/* ===== HERO ===== */
+.hero{
   min-height:100vh;
   display:flex;
-  flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
-  padding:20px;
+  position:relative;
+  overflow:hidden;
 }
 
-.logo{
-  font-size:72px;
-  font-weight:700;
-  letter-spacing:6px;
-  background:linear-gradient(270deg,#00f2fe,#4facfe,#1abc9c);
-  background-size:600% 600%;
+.hero::before,
+.hero::after{
+  content:"";
+  position:absolute;
+  width:500px;height:500px;
+  background:radial-gradient(circle,var(--secondary),transparent 70%);
+  filter:blur(120px);
+  opacity:.6;
+  animation:float 12s infinite alternate;
+}
+.hero::after{
+  background:radial-gradient(circle,var(--primary),transparent 70%);
+  top:60%;
+  left:60%;
+}
+
+@keyframes float{
+  from{transform:translateY(-40px)}
+  to{transform:translateY(40px)}
+}
+
+.hero h1{
+  font-size:92px;
+  font-weight:800;
+  letter-spacing:10px;
+  background:linear-gradient(120deg,var(--primary),var(--gold),var(--secondary));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
-  animation:gradientText 8s ease infinite;
+  animation:shine 6s infinite linear;
 }
 
-@keyframes gradientText{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+@keyframes shine{
+  from{filter:hue-rotate(0deg)}
+  to{filter:hue-rotate(360deg)}
 }
 
-header p{
-  margin-top:15px;
-  color:#aaa;
-  font-size:20px;
+.hero p{
+  margin-top:25px;
+  color:#ccc;
+  font-size:22px;
 }
 
-.btn{
-  margin-top:35px;
-  padding:14px 38px;
-  border-radius:40px;
-  background:linear-gradient(135deg,#1abc9c,#4facfe);
+.hero a{
+  display:inline-block;
+  margin-top:50px;
+  padding:18px 50px;
+  border-radius:60px;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
   color:#000;
   font-weight:600;
   text-decoration:none;
-  box-shadow:0 0 25px rgba(26,188,156,.4);
+  box-shadow:0 0 40px rgba(124,249,255,.6);
   transition:.4s;
 }
-.btn:hover{
-  transform:translateY(-4px) scale(1.05);
-  box-shadow:0 0 45px rgba(79,172,254,.8);
+.hero a:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 70px rgba(155,92,255,.9);
 }
 
-/* ---------- SECTIONS ---------- */
+/* ===== SECTIONS ===== */
 section{
-  max-width:1000px;
-  margin:120px auto;
-  padding:0 25px;
-  opacity:0;
-  transform:translateY(60px);
-  transition:1s;
-}
-section.show{opacity:1;transform:none}
-
-h2{
-  font-size:38px;
-  margin-bottom:30px;
-  position:relative;
-}
-h2::after{
-  content:"";
-  width:60px;
-  height:3px;
-  background:#1abc9c;
-  position:absolute;
-  bottom:-10px;left:0;
+  max-width:1200px;
+  margin:160px auto;
+  padding:0 30px;
 }
 
-/* ---------- GLASS CARD ---------- */
+.title{
+  text-align:center;
+  margin-bottom:60px;
+}
+.title h2{
+  font-size:54px;
+  background:linear-gradient(120deg,var(--primary),var(--secondary));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* ===== FANCY CARD ===== */
 .card{
-  background:rgba(255,255,255,.06);
-  backdrop-filter:blur(18px);
-  border-radius:25px;
-  padding:40px;
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
-  transition:.4s;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+  border-radius:35px;
+  padding:60px;
+  backdrop-filter:blur(25px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 40px 80px rgba(0,0,0,.9);
+  transform-style:preserve-3d;
+  transition:.6s;
 }
 .card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 30px 60px rgba(0,0,0,.9);
+  transform:rotateX(8deg) rotateY(-8deg) translateY(-15px);
 }
 
 .card p{
-  color:#ccc;
-  line-height:1.8;
-  font-size:16px;
+  color:#ddd;
+  font-size:18px;
+  line-height:1.9;
+  text-align:center;
 }
 
-/* ---------- TEAM ---------- */
+/* ===== TEAM ===== */
 .team{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:50px;
 }
 
-.profile{
+.member{
+  position:relative;
+  padding:50px 40px;
+  border-radius:40px;
+  background:linear-gradient(160deg,#0d1020,#07070c);
   text-align:center;
+  overflow:hidden;
 }
-.profile img{
-  width:160px;
-  height:160px;
+.member::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,var(--primary),var(--secondary),var(--gold));
+  opacity:.25;
+  mix-blend-mode:overlay;
+}
+
+.member img{
+  width:160px;height:160px;
   border-radius:50%;
   object-fit:cover;
-  border:4px solid transparent;
-  background:linear-gradient(#000,#000) padding-box,
-             linear-gradient(135deg,#1abc9c,#4facfe) border-box;
-  margin-bottom:20px;
-}
-.profile h3{
-  color:#1abc9c;
-  margin-bottom:10px;
+  margin-bottom:25px;
+  border:4px solid var(--primary);
+  box-shadow:0 0 35px rgba(124,249,255,.6);
 }
 
-/* ---------- FOOTER ---------- */
+.member h3{
+  font-size:22px;
+}
+.member span{
+  font-size:13px;
+  letter-spacing:3px;
+  color:var(--gold);
+}
+
+/* ===== FOOTER ===== */
 footer{
   text-align:center;
-  padding:60px 20px;
-  color:#666;
-  background:#080808;
+  padding:80px 20px;
+  color:#777;
   font-size:14px;
 }
 
-/* ---------- MOBILE ---------- */
-@media(max-width:600px){
-  .logo{font-size:44px}
-  h2{font-size:30px}
+/* ===== MOBILE ===== */
+@media(max-width:768px){
+  .hero h1{font-size:52px}
+  .title h2{font-size:36px}
 }
 </style>
 </head>
 <body>
 
-<canvas id="bg"></canvas>
+<div class="cursor"></div>
 
-<header>
-  <div class="logo">XELVIRO</div>
-  <p>Creativity • Innovation • Vision</p>
-  <a href="#contact" class="btn">Connect With Us</a>
-</header>
+<div class="hero">
+  <div>
+    <h1>XELVIRO</h1>
+    <p>Future Luxury • Creative Power • Vision</p>
+    <a href="#about">ENTER EXPERIENCE</a>
+  </div>
+</div>
 
-<section>
-  <h2>About</h2>
+<section id="about">
+  <div class="title"><h2>About</h2></div>
   <div class="card">
     <p>
-      XELVIRO is a next-generation creative company built on originality and long-term vision.
-      We don’t chase trends — we create identity, direction, and impact.
+      XELVIRO is not just a company — it’s a statement.
+      Built for originality, dominance, and long-term creative legacy.
     </p>
   </div>
 </section>
 
 <section>
-  <h2>Vision</h2>
+  <div class="title"><h2>Vision</h2></div>
   <div class="card">
     <p>
-      Our vision is to experiment, innovate, and build premium ideas across creative domains.
-      XELVIRO represents freedom, bold thinking, and future-ready execution.
+      We design ideas that feel expensive, rare, and powerful.
+      XELVIRO exists to redefine creative luxury in the modern world.
     </p>
   </div>
 </section>
 
 <section>
-  <h2>Team</h2>
+  <div class="title"><h2>Team</h2></div>
   <div class="team">
-    <div class="card profile">
+    <div class="member">
       <img src="https://i.ibb.co/rR429p76/IMG-2214.jpg">
       <h3>Kunal</h3>
-      <p>Founder & Visionary</p>
+      <span>FOUNDER</span>
     </div>
-    <div class="card profile">
+    <div class="member">
       <img src="https://iili.io/fGnrMpj.md.jpg">
       <h3>Abhijit</h3>
-      <p>Co-Founder</p>
+      <span>CO-FOUNDER</span>
     </div>
-    <div class="card profile">
+    <div class="member">
       <img src="https://iili.io/fGn8nHv.jpg">
       <h3>Sayan</h3>
-      <p>Co-Founder</p>
+      <span>CO-FOUNDER</span>
     </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <div class="card">
-    <p>
-      Email: <a href="mailto:shrisantcntc21@gmail.com">shrisantcntc21@gmail.com</a><br><br>
-      Instagram: <a href="https://instagram.com/xelviro" target="_blank">@xelviro</a>
-    </p>
   </div>
 </section>
 
 <footer>
-  © 2025 XELVIRO — Designed for the Future
+  © 2025 XELVIRO — Built to Feel Expensive
 </footer>
 
 <script>
-/* ---------- SCROLL REVEAL ---------- */
-const secs=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-  const t=window.innerHeight*0.85;
-  secs.forEach(s=>{
-    if(s.getBoundingClientRect().top<t){s.classList.add("show")}
-  })
-})
-
-/* ---------- PARTICLES ---------- */
-const c=document.getElementById("bg"),x=c.getContext("2d");
-c.width=innerWidth;c.height=innerHeight;
-let p=[...Array(90)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2+1}));
-function draw(){
-  x.clearRect(0,0,c.width,c.height);
-  p.forEach(o=>{
-    x.beginPath();
-    x.arc(o.x,o.y,o.r,0,Math.PI*2);
-    x.fillStyle="rgba(26,188,156,.6)";
-    x.fill();
-    o.y+=.3;
-    if(o.y>c.height)o.y=0;
-  });
-  requestAnimationFrame(draw);
-}
-draw();
+/* CURSOR GLOW */
+const c=document.querySelector(".cursor");
+window.addEventListener("mousemove",e=>{
+  c.style.left=e.clientX+"px";
+  c.style.top=e.clientY+"px";
+});
 </script>
 
 </body>
