@@ -3,26 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XELVIRO</title>
+<title>XELVIRO — Built Young. Built Fearless.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#050507;
-  --panel:#0f1016;
-  --text:#f5f5f7;
-  --muted:#a1a1aa;
-  --accent:#7df9ff;
-  --accent2:#a855f7;
+  --bg:#03040a;
+  --panel:#0b0f1a;
+  --text:#f8fafc;
+  --muted:#9aa4b2;
+  --neon:#5efcff;
+  --violet:#9b5cff;
 }
 
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  font-family:'Manrope',sans-serif;
-  background:radial-gradient(circle at top,#0b0c14,var(--bg) 60%);
+  font-family:'Inter',sans-serif;
+  background:radial-gradient(circle at top,var(--panel),var(--bg) 70%);
   color:var(--text);
   overflow-x:hidden;
 }
@@ -33,17 +33,17 @@ body{
   top:0;left:0;
   height:3px;
   width:0%;
-  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  background:linear-gradient(90deg,var(--neon),var(--violet));
   z-index:9999;
 }
 
 /* CURSOR GLOW */
 .cursor{
   position:fixed;
-  width:22px;height:22px;
+  width:26px;height:26px;
   border-radius:50%;
   pointer-events:none;
-  background:radial-gradient(circle,rgba(125,249,255,.6),transparent 70%);
+  background:radial-gradient(circle,rgba(94,252,255,.6),transparent 70%);
   transform:translate(-50%,-50%);
   z-index:999;
 }
@@ -60,16 +60,16 @@ body{
 .hero::before{
   content:"";
   position:absolute;
-  width:800px;height:800px;
-  background:radial-gradient(circle,var(--accent2),transparent 65%);
-  filter:blur(150px);
+  width:900px;height:900px;
+  background:radial-gradient(circle,var(--violet),transparent 65%);
+  filter:blur(180px);
   opacity:.45;
 }
 .hero h1{
-  font-size:clamp(56px,10vw,120px);
-  font-weight:800;
-  letter-spacing:16px;
-  background:linear-gradient(120deg,var(--accent),#ffffff,var(--accent2));
+  font-size:clamp(64px,10vw,140px);
+  font-weight:900;
+  letter-spacing:18px;
+  background:linear-gradient(120deg,var(--neon),#ffffff,var(--violet));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -77,73 +77,82 @@ body{
   margin-top:30px;
   font-size:22px;
   color:var(--muted);
+  max-width:700px;
+  margin-inline:auto;
 }
-.hero a{
-  margin-top:60px;
+.hero .status{
+  margin-top:70px;
   display:inline-block;
   padding:18px 60px;
   border-radius:999px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  font-weight:900;
+  letter-spacing:3px;
+  font-size:13px;
   color:#000;
-  font-weight:800;
-  text-decoration:none;
-  box-shadow:0 0 60px rgba(125,249,255,.55);
-  transition:.4s;
+  background:linear-gradient(135deg,#ffe66d,#ffb703);
+  box-shadow:0 0 50px rgba(255,183,3,.7);
+  animation:pulse 2.2s infinite;
 }
-.hero a:hover{transform:scale(1.1)}
 
-/* SECTION */
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
+
+/* SECTIONS */
 section{
   max-width:1200px;
-  margin:180px auto;
+  margin:200px auto;
   padding:0 30px;
   opacity:0;
-  transform:translateY(90px);
-  transition:1.3s cubic-bezier(.19,1,.22,1);
+  transform:translateY(100px);
+  transition:1.4s cubic-bezier(.19,1,.22,1);
 }
 section.show{opacity:1;transform:none}
 
-/* TITLE */
+/* TITLES */
 .title{
   display:flex;
   align-items:center;
   gap:25px;
-  margin-bottom:70px;
+  margin-bottom:80px;
 }
 .title span{
   font-size:12px;
-  letter-spacing:4px;
-  color:var(--accent);
+  letter-spacing:5px;
+  color:var(--neon);
 }
 .title h2{
-  font-size:50px;
+  font-size:54px;
+  font-weight:900;
 }
 
-/* PANEL */
+/* GLASS PANEL */
 .panel{
   background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
-  border-radius:45px;
-  padding:70px;
+  border-radius:50px;
+  padding:80px;
   box-shadow:
     inset 0 0 0 1px rgba(255,255,255,.08),
-    0 50px 120px rgba(0,0,0,.9);
+    0 60px 140px rgba(0,0,0,.95);
 }
 .panel p{
-  font-size:18px;
-  line-height:2;
-  color:#d4d4d8;
+  font-size:19px;
+  line-height:2.1;
+  color:#d4d9e3;
 }
 
-/* BIO CARDS */
+/* TEAM */
 .team{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:60px;
+  grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:70px;
 }
 .bio{
   background:var(--panel);
-  border-radius:45px;
-  padding:60px;
+  border-radius:50px;
+  padding:70px;
   position:relative;
   overflow:hidden;
 }
@@ -151,44 +160,45 @@ section.show{opacity:1;transform:none}
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(120deg,var(--accent),var(--accent2));
-  opacity:.12;
+  background:linear-gradient(120deg,var(--neon),var(--violet));
+  opacity:.10;
 }
 .bio img{
-  width:150px;height:150px;
+  width:160px;height:160px;
   border-radius:50%;
   object-fit:cover;
-  border:3px solid var(--accent);
-  margin-bottom:30px;
+  border:4px solid var(--neon);
+  margin-bottom:35px;
 }
 .bio h3{
-  font-size:26px;
+  font-size:28px;
+  font-weight:800;
 }
 .bio span{
   display:block;
-  margin-bottom:25px;
-  font-size:13px;
-  letter-spacing:3px;
-  color:var(--accent);
+  margin-bottom:28px;
+  font-size:12px;
+  letter-spacing:4px;
+  color:var(--neon);
 }
 .bio p{
   font-size:16px;
-  line-height:1.9;
-  color:#cfcfd6;
+  line-height:2;
+  color:#cfd6e3;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:100px 30px;
+  padding:120px 30px;
   color:#777;
   font-size:14px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .title h2{font-size:36px}
-  .panel{padding:45px}
+  .title h2{font-size:38px}
+  .panel{padding:50px}
 }
 </style>
 </head>
@@ -202,22 +212,27 @@ footer{
 <div class="hero">
   <div>
     <h1>XELVIRO</h1>
-    <p>A Dream Built Young. A Vision Built Bold.</p>
-    <a href="#about">DISCOVER</a>
+    <p>
+      A luxury creative venture born from youth, ambition, and the courage
+      to build before permission is given.
+    </p>
+    <div class="status">CURRENTLY UNDER DEVELOPMENT</div>
   </div>
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<section>
   <div class="title">
-    <span>01</span><h2>About XELVIRO</h2>
+    <span>01</span><h2>About</h2>
   </div>
   <div class="panel">
     <p>
-      XELVIRO is a creative company born from ambition, curiosity, and the hunger
-      to build something meaningful at a young age.  
-      It is not driven by shortcuts or trends, but by long-term vision,
-      originality, and the courage to start before being “ready”.
+      XELVIRO is not a trend-based brand — it is a long-term vision.
+      Built with patience and intention, it represents a new generation
+      of creators who value originality, depth, and identity over speed.
+      <br><br>
+      Every decision is made with longevity in mind. Every idea is treated
+      as a foundation, not a shortcut.
     </p>
   </div>
 </section>
@@ -229,15 +244,17 @@ footer{
   </div>
   <div class="panel">
     <p>
-      The vision of XELVIRO is to grow slowly, thoughtfully, and powerfully.
-      To create ideas, brands, and experiences that feel rare, intentional,
-      and emotionally connected.  
-      This journey is about evolution — learning, failing, improving, and rising.
+      The vision of XELVIRO is to quietly grow into something undeniable.
+      To explore creative domains, build meaningful projects, and create
+      work that feels rare, thoughtful, and intentional.
+      <br><br>
+      This is a journey of evolution — learning relentlessly, refining
+      continuously, and never compromising on identity.
     </p>
   </div>
 </section>
 
-<!-- TEAM -->
+<!-- FOUNDERS -->
 <section>
   <div class="title">
     <span>03</span><h2>Founders</h2>
@@ -251,14 +268,15 @@ footer{
       <h3>Kunal</h3>
       <span>FOUNDER • AGE 19</span>
       <p>
-        Kunal is a 19-year-old dreamer and founder who believes age should never
-        limit ambition. With no shortcuts and no inherited advantages, he started
-        XELVIRO driven by curiosity, imagination, and an intense desire to build
-        something of his own.  
+        Kunal is a 19-year-old founder who believes that youth is not a weakness,
+        but a strategic advantage. With no shortcuts, no safety net, and no
+        inherited platform, he started XELVIRO driven purely by curiosity,
+        discipline, and ambition.
         <br><br>
-        His journey is defined by late nights, self-learning, experimentation,
-        and the courage to start early. XELVIRO represents his belief that
-        discipline, vision, and patience can turn youthful dreams into reality.
+        His journey is shaped by self-learning, late nights, experimentation,
+        and the refusal to wait for validation. XELVIRO represents his belief
+        that starting early, thinking long-term, and staying patient can turn
+        raw dreams into lasting reality.
       </p>
     </div>
 
@@ -268,12 +286,13 @@ footer{
       <h3>Abhijit</h3>
       <span>CO-FOUNDER</span>
       <p>
-        Abhijit is a co-founder driven by growth, resilience, and the hunger to
-        succeed. He believes in learning through experience and pushing limits
-        through consistent effort.  
+        Abhijit is driven by resilience and the desire to build success through
+        consistency rather than hype. He believes progress is earned through
+        action, learning, and persistence.
         <br><br>
-        As part of XELVIRO, he focuses on shaping ideas into reality while building
-        a future based on hard work, creativity, and long-term thinking.
+        At XELVIRO, he focuses on transforming ideas into execution while
+        contributing strategic thinking and grounded perspective to the
+        company’s growth.
       </p>
     </div>
 
@@ -283,12 +302,13 @@ footer{
       <h3>Sayan</h3>
       <span>CO-FOUNDER</span>
       <p>
-        Sayan is a co-founder with a forward-looking mindset and a strong desire
-        to achieve success through innovation. He believes collaboration,
-        consistency, and ambition are the foundations of any lasting venture.  
+        Sayan brings a forward-thinking mindset and a strong drive for innovation.
+        He believes meaningful success is built through collaboration, patience,
+        and adaptability.
         <br><br>
-        At XELVIRO, he contributes ideas, perspective, and dedication, helping
-        shape the company’s evolving identity and future direction.
+        As a co-founder of XELVIRO, he contributes ideas, creative insight, and
+        long-term thinking, helping shape the brand’s evolving direction and
+        future identity.
       </p>
     </div>
 
