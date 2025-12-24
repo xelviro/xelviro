@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>XELVIRO — A Vision Built Young</title>
+<title>XELVIRO — Built Young. Built Fearless.</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#02030a;
-  --panel:#0b1020;
-  --soft:#11162a;
+  --bg:#02020a;
+  --panel:#0a0f24;
+  --glass:rgba(255,255,255,.06);
   --text:#f8fafc;
   --muted:#9aa4b2;
   --neon:#5efcff;
   --violet:#9b5cff;
-  --gold:#ffcc70;
+  --gold:#ffd166;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -24,8 +24,8 @@ html{scroll-behavior:smooth}
 body{
   font-family:'Inter',sans-serif;
   background:
-    radial-gradient(circle at 10% 10%,#0b1230,transparent 40%),
-    radial-gradient(circle at 90% 20%,#2a0f3a,transparent 45%),
+    radial-gradient(circle at 15% 10%,#0b1a40,transparent 45%),
+    radial-gradient(circle at 85% 20%,#3b125a,transparent 50%),
     var(--bg);
   color:var(--text);
   overflow-x:hidden;
@@ -36,30 +36,32 @@ nav{
   position:fixed;
   top:0;left:0;
   width:100%;
-  padding:22px 60px;
+  padding:24px 70px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(2,3,10,.55);
-  backdrop-filter:blur(12px);
+  background:rgba(2,2,10,.6);
+  backdrop-filter:blur(14px);
   z-index:999;
 }
-nav .brand{
+.brand{
   font-weight:900;
-  letter-spacing:4px;
+  letter-spacing:5px;
   color:var(--neon);
 }
 nav a{
   color:var(--muted);
-  margin-left:30px;
+  margin-left:35px;
   font-size:14px;
   text-decoration:none;
 }
 nav a:hover{color:var(--text)}
 
-/* PROGRESS */
+/* SCROLL PROGRESS */
 #progress{
-  position:fixed;top:0;left:0;height:3px;width:0%;
+  position:fixed;
+  top:0;left:0;
+  height:3px;width:0%;
   background:linear-gradient(90deg,var(--neon),var(--violet));
   z-index:1000;
 }
@@ -70,95 +72,96 @@ nav a:hover{color:var(--text)}
   display:grid;
   place-items:center;
   text-align:center;
-  padding:0 30px;
+  padding:0 40px;
 }
 .hero h1{
-  font-size:clamp(70px,12vw,160px);
+  font-size:clamp(72px,13vw,170px);
   font-weight:900;
-  letter-spacing:22px;
+  letter-spacing:24px;
   background:linear-gradient(120deg,var(--neon),#fff,var(--violet));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .hero p{
-  max-width:760px;
-  margin:40px auto;
+  max-width:820px;
+  margin:45px auto;
   font-size:22px;
   color:var(--muted);
 }
 .hero .badge{
-  padding:18px 60px;
+  padding:18px 70px;
   border-radius:999px;
   background:linear-gradient(135deg,var(--gold),#ffb703);
   color:#000;
   font-weight:900;
   letter-spacing:3px;
-  box-shadow:0 0 60px rgba(255,183,3,.6);
+  box-shadow:0 0 70px rgba(255,209,102,.7);
 }
 
-/* SECTION */
+/* SECTIONS */
 section{
-  max-width:1400px;
-  margin:220px auto;
-  padding:0 60px;
+  max-width:1500px;
+  margin:240px auto;
+  padding:0 70px;
   opacity:0;
-  transform:translateY(100px);
-  transition:1.4s cubic-bezier(.19,1,.22,1);
+  transform:translateY(120px);
+  transition:1.6s cubic-bezier(.19,1,.22,1);
 }
 section.show{opacity:1;transform:none}
 
 .label{
   font-size:12px;
-  letter-spacing:5px;
+  letter-spacing:6px;
   color:var(--neon);
-  margin-bottom:25px;
+  margin-bottom:30px;
 }
 h2{
-  font-size:56px;
+  font-size:58px;
   font-weight:900;
-  margin-bottom:40px;
+  margin-bottom:50px;
 }
 
 /* SPLIT */
 .split{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:120px;
+  gap:140px;
   align-items:center;
 }
 
-/* GLASS */
+/* GLASS PANEL */
 .glass{
-  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
-  border-radius:60px;
-  padding:90px;
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+  border-radius:70px;
+  padding:100px;
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.08),
-    0 70px 160px rgba(0,0,0,.95);
+    inset 0 0 0 1px rgba(255,255,255,.09),
+    0 80px 200px rgba(0,0,0,.95);
 }
 .glass p{
-  font-size:19px;
-  line-height:2.1;
-  color:#d5dbea;
+  font-size:20px;
+  line-height:2.2;
+  color:#d7dced;
 }
 
 /* STATS */
 .stats{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:60px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:70px;
 }
 .stat{
-  background:var(--soft);
-  border-radius:40px;
-  padding:50px;
+  background:var(--panel);
+  border-radius:50px;
+  padding:60px;
+  box-shadow:0 30px 80px rgba(0,0,0,.7);
 }
 .stat h3{
-  font-size:42px;
+  font-size:46px;
   color:var(--neon);
 }
 .stat p{
-  margin-top:10px;
+  margin-top:12px;
   color:var(--muted);
 }
 
@@ -166,48 +169,84 @@ h2{
 .people{
   display:flex;
   flex-direction:column;
-  gap:180px;
+  gap:200px;
 }
 .person{
   display:grid;
-  grid-template-columns:420px 1fr;
-  gap:100px;
+  grid-template-columns:460px 1fr;
+  gap:120px;
   align-items:center;
 }
-.person.reverse{grid-template-columns:1fr 420px}
+.person.reverse{grid-template-columns:1fr 460px}
 .person img{
   width:100%;
-  border-radius:45px;
+  border-radius:55px;
   border:4px solid var(--neon);
+  box-shadow:0 40px 120px rgba(94,252,255,.3);
 }
-.person h3{font-size:36px}
+.person h3{font-size:38px}
 .person span{
   display:block;
-  margin:25px 0 40px;
-  letter-spacing:4px;
+  margin:28px 0 45px;
+  letter-spacing:5px;
   font-size:12px;
   color:var(--neon);
 }
 .person p{
-  font-size:17px;
-  line-height:2.1;
+  font-size:18px;
+  line-height:2.2;
   color:#cfd6e6;
+}
+
+/* LINK EMBEDS */
+.embeds{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:50px;
+  margin-top:80px;
+}
+.embed{
+  background:linear-gradient(145deg,#0c122c,#050816);
+  border-radius:40px;
+  padding:40px;
+  text-decoration:none;
+  color:var(--text);
+  box-shadow:0 30px 90px rgba(0,0,0,.8);
+  transition:.4s;
+}
+.embed:hover{
+  transform:translateY(-10px) scale(1.02);
+  box-shadow:0 50px 140px rgba(94,252,255,.35);
+}
+.embed span{
+  display:block;
+  font-size:12px;
+  letter-spacing:4px;
+  color:var(--neon);
+  margin-bottom:15px;
+}
+.embed h4{
+  font-size:20px;
+  margin-bottom:10px;
+}
+.embed p{
+  color:var(--muted);
+  font-size:14px;
 }
 
 /* FOOTER */
 footer{
-  padding:140px 40px;
+  padding:160px 40px;
   text-align:center;
   color:#777;
-  background:#02030a;
 }
 
 /* MOBILE */
 @media(max-width:900px){
   nav{padding:20px 30px}
-  .split,.person,.person.reverse{grid-template-columns:1fr}
   section{padding:0 30px}
-  h2{font-size:40px}
+  .split,.person,.person.reverse{grid-template-columns:1fr}
+  h2{font-size:42px}
 }
 </style>
 </head>
@@ -220,8 +259,8 @@ footer{
   <div class="brand">XELVIRO</div>
   <div>
     <a href="#about">About</a>
-    <a href="#vision">Vision</a>
     <a href="#founders">Founders</a>
+    <a href="#links">Links</a>
   </div>
 </nav>
 
@@ -239,16 +278,13 @@ footer{
   <div class="split">
     <div>
       <div class="label">01 • ABOUT</div>
-      <h2>Designed to Last</h2>
-      <p>
-        XELVIRO is built with restraint, discipline, and long-term thinking.
-        Not a hype brand — but a foundation.
-      </p>
+      <h2>Architecture, Not Noise</h2>
+      <p>XELVIRO is built for permanence — not trends.</p>
     </div>
     <div class="glass">
       <p>
-        Every idea at XELVIRO is treated as architecture, not decoration.
-        The goal is not speed — the goal is permanence.
+        Every idea is shaped slowly, intentionally, and with respect for time.
+        XELVIRO believes luxury comes from restraint, clarity, and patience.
       </p>
     </div>
   </div>
@@ -258,7 +294,7 @@ footer{
 <section>
   <div class="stats">
     <div class="stat"><h3>19</h3><p>Founder Age</p></div>
-    <div class="stat"><h3>∞</h3><p>Long-Term Vision</p></div>
+    <div class="stat"><h3>∞</h3><p>Vision Timeline</p></div>
     <div class="stat"><h3>0</h3><p>Shortcuts Taken</p></div>
   </div>
 </section>
@@ -274,9 +310,8 @@ footer{
         <h3>Kunal</h3>
         <span>FOUNDER • AGE 19</span>
         <p>
-          Kunal started XELVIRO with nothing but discipline and belief.
-          He represents a generation that starts early, learns fast,
-          and builds quietly.
+          Kunal started XELVIRO with belief, discipline, and patience.
+          He represents a generation that builds quietly and thinks long-term.
         </p>
       </div>
     </div>
@@ -286,8 +321,8 @@ footer{
         <h3>Abhijit</h3>
         <span>CO-FOUNDER</span>
         <p>
-          Abhijit focuses on execution, balance, and turning ideas into reality
-          through consistency.
+          Abhijit focuses on execution and balance,
+          turning ideas into consistent progress.
         </p>
       </div>
       <img src="https://iili.io/fGnrMpj.md.jpg">
@@ -300,11 +335,37 @@ footer{
         <span>CO-FOUNDER</span>
         <p>
           Sayan brings innovation and long-term thinking,
-          helping shape the future identity of XELVIRO.
+          helping shape XELVIRO’s evolving identity.
         </p>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- LINK EMBEDS -->
+<section id="links">
+  <div class="label">03 • LINKS</div>
+  <h2>Our Presence</h2>
+
+  <div class="embeds">
+    <a class="embed" href="https://instagram.com/xelviro" target="_blank">
+      <span>INSTAGRAM</span>
+      <h4>@xelviro</h4>
+      <p>Behind the scenes & brand evolution</p>
+    </a>
+
+    <a class="embed" href="https://youtube.com" target="_blank">
+      <span>YOUTUBE</span>
+      <h4>XELVIRO Studio</h4>
+      <p>Creative process & future drops</p>
+    </a>
+
+    <a class="embed" href="mailto:shrisantcntc21@gmail.com">
+      <span>CONTACT</span>
+      <h4>Email Us</h4>
+      <p>Collaborations & inquiries</p>
+    </a>
   </div>
 </section>
 
@@ -313,7 +374,7 @@ footer{
 </footer>
 
 <script>
-/* SCROLL */
+/* SCROLL PROGRESS */
 window.addEventListener("scroll",()=>{
   const h=document.documentElement.scrollHeight-window.innerHeight;
   document.getElementById("progress").style.width=(scrollY/h)*100+"%";
