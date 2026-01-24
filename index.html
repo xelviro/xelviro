@@ -5,27 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>XELVIRO — Built Young. Built Fearless.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#02020a;
-  --panel:#0a0f24;
-  --glass:rgba(255,255,255,.06);
-  --text:#f8fafc;
-  --muted:#9aa4b2;
-  --neon:#5efcff;
-  --violet:#9b5cff;
-  --gold:#ffd166;
+  --bg:#02030f;
+  --panel:#070b1f;
+  --text:#f5f7fb;
+  --muted:#8f97a6;
+  --accent:#5efcff;
+  --violet:#8b5cf6;
+  --gold:#f5c77a;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   font-family:'Inter',sans-serif;
   background:
-    radial-gradient(circle at 15% 10%,#0b1a40,transparent 45%),
-    radial-gradient(circle at 85% 20%,#3b125a,transparent 50%),
+    radial-gradient(600px at 20% 10%,#0b1d4a40,transparent),
+    radial-gradient(600px at 80% 20%,#3b145a40,transparent),
     var(--bg);
   color:var(--text);
   overflow-x:hidden;
@@ -36,35 +36,27 @@ nav{
   position:fixed;
   top:0;left:0;
   width:100%;
-  padding:24px 70px;
+  padding:22px 80px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(2,2,10,.6);
-  backdrop-filter:blur(14px);
-  z-index:999;
+  backdrop-filter:blur(16px);
+  background:rgba(2,3,15,.6);
+  z-index:1000;
 }
 .brand{
   font-weight:900;
-  letter-spacing:5px;
-  color:var(--neon);
+  letter-spacing:6px;
+  color:var(--accent);
 }
 nav a{
   color:var(--muted);
-  margin-left:35px;
-  font-size:14px;
+  margin-left:40px;
+  font-size:13px;
+  letter-spacing:2px;
   text-decoration:none;
 }
 nav a:hover{color:var(--text)}
-
-/* SCROLL PROGRESS */
-#progress{
-  position:fixed;
-  top:0;left:0;
-  height:3px;width:0%;
-  background:linear-gradient(90deg,var(--neon),var(--violet));
-  z-index:1000;
-}
 
 /* HERO */
 .hero{
@@ -75,50 +67,52 @@ nav a:hover{color:var(--text)}
   padding:0 40px;
 }
 .hero h1{
-  font-size:clamp(72px,13vw,170px);
+  font-size:clamp(80px,14vw,180px);
   font-weight:900;
-  letter-spacing:24px;
-  background:linear-gradient(120deg,var(--neon),#fff,var(--violet));
+  letter-spacing:28px;
+  background:linear-gradient(120deg,var(--accent),#ffffff,var(--violet));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .hero p{
-  max-width:820px;
-  margin:45px auto;
+  max-width:760px;
+  margin:50px auto;
   font-size:22px;
+  line-height:1.9;
   color:var(--muted);
 }
-.hero .badge{
-  padding:18px 70px;
+.badge{
+  display:inline-block;
+  padding:18px 80px;
   border-radius:999px;
   background:linear-gradient(135deg,var(--gold),#ffb703);
   color:#000;
-  font-weight:900;
+  font-weight:800;
   letter-spacing:3px;
-  box-shadow:0 0 70px rgba(255,209,102,.7);
+  box-shadow:0 0 80px rgba(245,199,122,.6);
 }
 
 /* SECTIONS */
 section{
-  max-width:1500px;
-  margin:240px auto;
-  padding:0 70px;
+  max-width:1400px;
+  margin:220px auto;
+  padding:0 80px;
   opacity:0;
-  transform:translateY(120px);
-  transition:1.6s cubic-bezier(.19,1,.22,1);
+  transform:translateY(100px);
+  transition:1.4s cubic-bezier(.19,1,.22,1);
 }
 section.show{opacity:1;transform:none}
 
 .label{
-  font-size:12px;
+  font-size:11px;
   letter-spacing:6px;
-  color:var(--neon);
-  margin-bottom:30px;
+  color:var(--accent);
+  margin-bottom:26px;
 }
 h2{
-  font-size:58px;
+  font-size:56px;
   font-weight:900;
-  margin-bottom:50px;
+  margin-bottom:40px;
 }
 
 /* SPLIT */
@@ -129,105 +123,107 @@ h2{
   align-items:center;
 }
 
-/* GLASS PANEL */
+/* GLASS */
 .glass{
-  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
-  border-radius:70px;
-  padding:100px;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border-radius:60px;
+  padding:90px;
   box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.09),
-    0 80px 200px rgba(0,0,0,.95);
+    inset 0 0 0 1px rgba(255,255,255,.08),
+    0 60px 160px rgba(0,0,0,.9);
 }
 .glass p{
   font-size:20px;
   line-height:2.2;
-  color:#d7dced;
+  color:#d5daea;
 }
 
 /* STATS */
 .stats{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:70px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:80px;
 }
 .stat{
   background:var(--panel);
   border-radius:50px;
-  padding:60px;
-  box-shadow:0 30px 80px rgba(0,0,0,.7);
+  padding:70px;
+  text-align:center;
+  box-shadow:0 40px 120px rgba(0,0,0,.8);
 }
 .stat h3{
-  font-size:46px;
-  color:var(--neon);
+  font-size:48px;
+  color:var(--accent);
 }
 .stat p{
-  margin-top:12px;
+  margin-top:14px;
   color:var(--muted);
+  letter-spacing:1px;
 }
 
 /* FOUNDERS */
 .people{
   display:flex;
   flex-direction:column;
-  gap:200px;
+  gap:180px;
 }
 .person{
   display:grid;
-  grid-template-columns:460px 1fr;
+  grid-template-columns:420px 1fr;
   gap:120px;
   align-items:center;
 }
-.person.reverse{grid-template-columns:1fr 460px}
+.person.reverse{grid-template-columns:1fr 420px}
 .person img{
   width:100%;
-  border-radius:55px;
-  border:4px solid var(--neon);
-  box-shadow:0 40px 120px rgba(94,252,255,.3);
+  border-radius:50px;
+  box-shadow:0 60px 160px rgba(0,0,0,.9);
 }
-.person h3{font-size:38px}
+.person h3{
+  font-size:40px;
+  font-weight:900;
+}
 .person span{
   display:block;
-  margin:28px 0 45px;
-  letter-spacing:5px;
+  margin:26px 0 40px;
   font-size:12px;
-  color:var(--neon);
+  letter-spacing:6px;
+  color:var(--accent);
 }
 .person p{
   font-size:18px;
   line-height:2.2;
-  color:#cfd6e6;
+  color:#cdd3e3;
 }
 
-/* LINK EMBEDS */
+/* LINKS */
 .embeds{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:50px;
-  margin-top:80px;
+  gap:60px;
+  margin-top:70px;
 }
 .embed{
-  background:linear-gradient(145deg,#0c122c,#050816);
-  border-radius:40px;
-  padding:40px;
+  background:linear-gradient(160deg,#0b102c,#050815);
+  border-radius:45px;
+  padding:45px;
   text-decoration:none;
   color:var(--text);
-  box-shadow:0 30px 90px rgba(0,0,0,.8);
-  transition:.4s;
+  box-shadow:0 40px 120px rgba(0,0,0,.9);
+  transition:.45s cubic-bezier(.19,1,.22,1);
 }
 .embed:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 50px 140px rgba(94,252,255,.35);
+  transform:translateY(-12px);
+  box-shadow:0 70px 180px rgba(94,252,255,.25);
 }
 .embed span{
-  display:block;
-  font-size:12px;
-  letter-spacing:4px;
-  color:var(--neon);
-  margin-bottom:15px;
+  font-size:11px;
+  letter-spacing:5px;
+  color:var(--accent);
 }
 .embed h4{
-  font-size:20px;
-  margin-bottom:10px;
+  font-size:22px;
+  margin:14px 0;
 }
 .embed p{
   color:var(--muted);
@@ -238,7 +234,8 @@ h2{
 footer{
   padding:160px 40px;
   text-align:center;
-  color:#777;
+  color:#6f7685;
+  letter-spacing:1px;
 }
 
 /* MOBILE */
@@ -253,18 +250,15 @@ footer{
 
 <body>
 
-<div id="progress"></div>
-
 <nav>
   <div class="brand">XELVIRO</div>
   <div>
-    <a href="#about">About</a>
-    <a href="#founders">Founders</a>
-    <a href="#links">Links</a>
+    <a href="#about">ABOUT</a>
+    <a href="#founders">FOUNDERS</a>
+    <a href="#links">LINKS</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <div>
     <h1>XELVIRO</h1>
@@ -273,7 +267,6 @@ footer{
   </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="split">
     <div>
@@ -284,13 +277,12 @@ footer{
     <div class="glass">
       <p>
         Every idea is shaped slowly, intentionally, and with respect for time.
-        XELVIRO believes luxury comes from restraint, clarity, and patience.
+        Luxury is not excess — it is restraint, clarity, and patience.
       </p>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
 <section>
   <div class="stats">
     <div class="stat"><h3>19</h3><p>Founder Age</p></div>
@@ -299,11 +291,10 @@ footer{
   </div>
 </section>
 
-<!-- FOUNDERS -->
 <section id="founders">
   <div class="label">02 • FOUNDERS</div>
-  <div class="people">
 
+  <div class="people">
     <div class="person">
       <img src="https://i.ibb.co/rR429p76/IMG-2214.jpg">
       <div>
@@ -321,29 +312,15 @@ footer{
         <h3>Abhijit</h3>
         <span>CO-FOUNDER</span>
         <p>
-          Abhijit focuses on execution and balance,
+          Focused on execution and balance,
           turning ideas into consistent progress.
         </p>
       </div>
       <img src="https://iili.io/fGnrMpj.md.jpg">
     </div>
-
-    <div class="person">
-      <img src="https://iili.io/fGn8nHv.jpg">
-      <div>
-        <h3>Sayan</h3>
-        <span>CO-FOUNDER</span>
-        <p>
-          Sayan brings innovation and long-term thinking,
-          helping shape XELVIRO’s evolving identity.
-        </p>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<!-- LINK EMBEDS -->
 <section id="links">
   <div class="label">03 • LINKS</div>
   <h2>Our Presence</h2>
@@ -374,16 +351,9 @@ footer{
 </footer>
 
 <script>
-/* SCROLL PROGRESS */
-window.addEventListener("scroll",()=>{
-  const h=document.documentElement.scrollHeight-window.innerHeight;
-  document.getElementById("progress").style.width=(scrollY/h)*100+"%";
-});
-
-/* REVEAL */
 const obs=new IntersectionObserver(e=>{
   e.forEach(x=>x.isIntersecting&&x.target.classList.add("show"))
-},{threshold:.25});
+},{threshold:.2});
 document.querySelectorAll("section").forEach(s=>obs.observe(s));
 </script>
 
