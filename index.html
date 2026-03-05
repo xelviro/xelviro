@@ -3,350 +3,691 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>XELVIRO — Built Young. Built Fearless.</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
 
 <style>
+
 :root{
-  --bg:#02030f;
-  --panel:#070b1f;
-  --text:#f5f7fb;
-  --muted:#8f97a6;
-  --accent:#5efcff;
-  --violet:#8b5cf6;
-  --gold:#f5c77a;
+--bg:#02030f;
+--panel:#080b1e;
+--accent:#5efcff;
+--violet:#8b5cf6;
+--gold:#ffd166;
+--text:#f5f7fb;
+--muted:#8f97a6;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
 body{
-  font-family:'Inter',sans-serif;
-  background:
-    radial-gradient(600px at 20% 10%,#0b1d4a40,transparent),
-    radial-gradient(600px at 80% 20%,#3b145a40,transparent),
-    var(--bg);
-  color:var(--text);
-  overflow-x:hidden;
+
+font-family:'Inter',sans-serif;
+color:var(--text);
+
+background:
+radial-gradient(circle at 20% 20%,#132a6d33,transparent),
+radial-gradient(circle at 80% 10%,#5f0a8733,transparent),
+var(--bg);
+
+overflow-x:hidden;
+}
+
+/* GRID BACKGROUND */
+
+body::before{
+
+content:"";
+
+position:fixed;
+width:100%;
+height:100%;
+
+background-image:
+linear-gradient(#ffffff08 1px, transparent 1px),
+linear-gradient(90deg,#ffffff08 1px, transparent 1px);
+
+background-size:80px 80px;
+
+opacity:.2;
+
+z-index:-1;
+
 }
 
 /* NAV */
+
 nav{
-  position:fixed;
-  top:0;left:0;
-  width:100%;
-  padding:22px 80px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  backdrop-filter:blur(16px);
-  background:rgba(2,3,15,.6);
-  z-index:1000;
+
+position:fixed;
+top:0;
+width:100%;
+
+padding:24px 80px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+backdrop-filter:blur(20px);
+background:rgba(2,3,15,.65);
+
+border-bottom:1px solid #ffffff10;
+
+z-index:1000;
+
 }
+
 .brand{
-  font-weight:900;
-  letter-spacing:6px;
-  color:var(--accent);
+
+font-weight:900;
+letter-spacing:6px;
+color:var(--accent);
+
+text-shadow:0 0 20px var(--accent);
+
 }
+
 nav a{
-  color:var(--muted);
-  margin-left:40px;
-  font-size:13px;
-  letter-spacing:2px;
-  text-decoration:none;
+
+margin-left:40px;
+text-decoration:none;
+color:var(--muted);
+font-size:13px;
+letter-spacing:2px;
+
+transition:.3s;
+
 }
-nav a:hover{color:var(--text)}
+
+nav a:hover{
+
+color:var(--accent);
+text-shadow:0 0 10px var(--accent);
+
+}
 
 /* HERO */
+
 .hero{
-  min-height:100vh;
-  display:grid;
-  place-items:center;
-  text-align:center;
-  padding:0 40px;
+
+height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+padding:0 40px;
+
 }
+
 .hero h1{
-  font-size:clamp(80px,14vw,180px);
-  font-weight:900;
-  letter-spacing:28px;
-  background:linear-gradient(120deg,var(--accent),#ffffff,var(--violet));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+
+font-size:clamp(80px,14vw,170px);
+
+font-weight:900;
+
+letter-spacing:22px;
+
+background:linear-gradient(120deg,var(--accent),white,var(--violet));
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+0 0 25px rgba(94,252,255,.3),
+0 0 60px rgba(139,92,246,.3);
+
 }
+
 .hero p{
-  max-width:760px;
-  margin:50px auto;
-  font-size:22px;
-  line-height:1.9;
-  color:var(--muted);
+
+margin-top:40px;
+
+font-size:22px;
+
+max-width:750px;
+
+color:var(--muted);
+
+line-height:1.8;
+
 }
+
 .badge{
-  display:inline-block;
-  padding:18px 80px;
-  border-radius:999px;
-  background:linear-gradient(135deg,var(--gold),#ffb703);
-  color:#000;
-  font-weight:800;
-  letter-spacing:3px;
-  box-shadow:0 0 80px rgba(245,199,122,.6);
+
+display:inline-block;
+
+margin-top:50px;
+
+padding:18px 70px;
+
+border-radius:999px;
+
+background:linear-gradient(135deg,var(--gold),#ffb703);
+
+color:black;
+
+font-weight:700;
+letter-spacing:3px;
+
+box-shadow:
+0 0 30px #ffd166aa,
+0 0 80px #ffb70355;
+
 }
 
 /* SECTIONS */
+
 section{
-  max-width:1400px;
-  margin:220px auto;
-  padding:0 80px;
-  opacity:0;
-  transform:translateY(100px);
-  transition:1.4s cubic-bezier(.19,1,.22,1);
+
+max-width:1400px;
+
+margin:200px auto;
+
+padding:0 80px;
+
+opacity:0;
+
+transform:translateY(80px);
+
+transition:1.2s;
+
 }
-section.show{opacity:1;transform:none}
+
+section.show{
+
+opacity:1;
+transform:none;
+
+}
 
 .label{
-  font-size:11px;
-  letter-spacing:6px;
-  color:var(--accent);
-  margin-bottom:26px;
+
+font-size:11px;
+
+letter-spacing:6px;
+
+color:var(--accent);
+
+margin-bottom:30px;
+
 }
+
 h2{
-  font-size:56px;
-  font-weight:900;
-  margin-bottom:40px;
+
+font-size:54px;
+font-weight:900;
+
+margin-bottom:40px;
+
 }
 
 /* SPLIT */
+
 .split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:140px;
-  align-items:center;
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:120px;
+
+align-items:center;
+
 }
 
-/* GLASS */
+/* GLASS CARD */
+
 .glass{
-  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
-  border-radius:60px;
-  padding:90px;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.08),
-    0 60px 160px rgba(0,0,0,.9);
+
+background:linear-gradient(180deg,#ffffff10,#ffffff05);
+
+padding:80px;
+
+border-radius:40px;
+
+backdrop-filter:blur(25px);
+
+border:1px solid #ffffff10;
+
+box-shadow:
+
+0 40px 120px rgba(0,0,0,.8),
+0 0 40px #5efcff20 inset;
+
 }
+
 .glass p{
-  font-size:20px;
-  line-height:2.2;
-  color:#d5daea;
+
+font-size:20px;
+line-height:2;
+
+color:#d5daea;
+
 }
 
 /* STATS */
+
 .stats{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:80px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+gap:60px;
+
 }
+
 .stat{
-  background:var(--panel);
-  border-radius:50px;
-  padding:70px;
-  text-align:center;
-  box-shadow:0 40px 120px rgba(0,0,0,.8);
+
+background:var(--panel);
+
+border-radius:35px;
+
+padding:60px;
+
+text-align:center;
+
+border:1px solid #ffffff08;
+
+transition:.4s;
+
 }
+
+.stat:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+
+0 20px 80px #5efcff22;
+
+}
+
 .stat h3{
-  font-size:48px;
-  color:var(--accent);
+
+font-size:48px;
+
+color:var(--accent);
+
+text-shadow:0 0 20px #5efcffaa;
+
 }
+
 .stat p{
-  margin-top:14px;
-  color:var(--muted);
-  letter-spacing:1px;
+
+margin-top:10px;
+color:var(--muted);
+
 }
 
 /* FOUNDERS */
+
 .people{
-  display:flex;
-  flex-direction:column;
-  gap:180px;
+
+display:flex;
+flex-direction:column;
+
+gap:150px;
+
 }
+
 .person{
-  display:grid;
-  grid-template-columns:420px 1fr;
-  gap:120px;
-  align-items:center;
+
+display:grid;
+
+grid-template-columns:420px 1fr;
+
+gap:120px;
+
+align-items:center;
+
 }
-.person.reverse{grid-template-columns:1fr 420px}
+
 .person img{
-  width:100%;
-  border-radius:50px;
-  box-shadow:0 60px 160px rgba(0,0,0,.9);
+
+width:100%;
+
+border-radius:40px;
+
+box-shadow:0 40px 120px rgba(0,0,0,.9);
+
 }
+
 .person h3{
-  font-size:40px;
-  font-weight:900;
+
+font-size:38px;
+
+font-weight:900;
+
 }
+
 .person span{
-  display:block;
-  margin:26px 0 40px;
-  font-size:12px;
-  letter-spacing:6px;
-  color:var(--accent);
+
+display:block;
+
+margin:20px 0;
+
+font-size:12px;
+
+letter-spacing:5px;
+
+color:var(--accent);
+
 }
+
 .person p{
-  font-size:18px;
-  line-height:2.2;
-  color:#cdd3e3;
+
+font-size:18px;
+
+line-height:2;
+
+color:#cdd3e3;
+
 }
 
 /* LINKS */
+
 .embeds{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:60px;
-  margin-top:70px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+gap:50px;
+
+margin-top:60px;
+
 }
+
 .embed{
-  background:linear-gradient(160deg,#0b102c,#050815);
-  border-radius:45px;
-  padding:45px;
-  text-decoration:none;
-  color:var(--text);
-  box-shadow:0 40px 120px rgba(0,0,0,.9);
-  transition:.45s cubic-bezier(.19,1,.22,1);
+
+background:linear-gradient(160deg,#0b102c,#050815);
+
+padding:40px;
+
+border-radius:35px;
+
+text-decoration:none;
+
+color:white;
+
+border:1px solid #ffffff10;
+
+transition:.4s;
+
 }
+
 .embed:hover{
-  transform:translateY(-12px);
-  box-shadow:0 70px 180px rgba(94,252,255,.25);
+
+transform:translateY(-12px);
+
+box-shadow:
+
+0 40px 120px #5efcff33;
+
 }
+
 .embed span{
-  font-size:11px;
-  letter-spacing:5px;
-  color:var(--accent);
+
+font-size:11px;
+
+letter-spacing:5px;
+
+color:var(--accent);
+
 }
+
 .embed h4{
-  font-size:22px;
-  margin:14px 0;
+
+font-size:22px;
+
+margin:12px 0;
+
 }
+
 .embed p{
-  color:var(--muted);
-  font-size:14px;
+
+font-size:14px;
+
+color:var(--muted);
+
 }
 
 /* FOOTER */
+
 footer{
-  padding:160px 40px;
-  text-align:center;
-  color:#6f7685;
-  letter-spacing:1px;
+
+margin-top:200px;
+
+padding:120px 40px;
+
+text-align:center;
+
+color:#6f7685;
+
 }
 
 /* MOBILE */
+
 @media(max-width:900px){
-  nav{padding:20px 30px}
-  section{padding:0 30px}
-  .split,.person,.person.reverse{grid-template-columns:1fr}
-  h2{font-size:42px}
+
+nav{
+padding:20px 30px;
 }
+
+section{
+padding:0 30px;
+}
+
+.split{
+grid-template-columns:1fr;
+}
+
+.person{
+grid-template-columns:1fr;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
 <nav>
-  <div class="brand">XELVIRO</div>
-  <div>
-    <a href="#about">ABOUT</a>
-    <a href="#founders">FOUNDERS</a>
-    <a href="#links">LINKS</a>
-  </div>
+
+<div class="brand">XELVIRO</div>
+
+<div>
+
+<a href="#about">ABOUT</a>
+<a href="#founders">FOUNDERS</a>
+<a href="#links">LINKS</a>
+
+</div>
+
 </nav>
 
 <div class="hero">
-  <div>
-    <h1>XELVIRO</h1>
-    <p>A luxury creative venture built by youth, patience, and fearless ambition.</p>
-    <div class="badge">CURRENTLY UNDER DEVELOPMENT</div>
-  </div>
+
+<div>
+
+<h1>XELVIRO</h1>
+
+<p>
+A luxury creative venture built by youth, patience,
+and fearless ambition.
+</p>
+
+<div class="badge">
+CURRENTLY UNDER DEVELOPMENT
+</div>
+
+</div>
+
 </div>
 
 <section id="about">
-  <div class="split">
-    <div>
-      <div class="label">01 • ABOUT</div>
-      <h2>Architecture, Not Noise</h2>
-      <p>XELVIRO is built for permanence — not trends.</p>
-    </div>
-    <div class="glass">
-      <p>
-        Every idea is shaped slowly, intentionally, and with respect for time.
-        Luxury is not excess — it is restraint, clarity, and patience.
-      </p>
-    </div>
-  </div>
+
+<div class="split">
+
+<div>
+
+<div class="label">01 • ABOUT</div>
+
+<h2>Architecture, Not Noise</h2>
+
+<p>
+XELVIRO is built for permanence — not trends.
+</p>
+
+</div>
+
+<div class="glass">
+
+<p>
+
+Every idea is shaped slowly, intentionally, and with
+respect for time.
+
+Luxury is not excess —
+it is restraint, clarity, and patience.
+
+</p>
+
+</div>
+
+</div>
+
 </section>
 
 <section>
-  <div class="stats">
-    <div class="stat"><h3>19</h3><p>Founder Age</p></div>
-    <div class="stat"><h3>∞</h3><p>Vision Timeline</p></div>
-    <div class="stat"><h3>0</h3><p>Shortcuts Taken</p></div>
-  </div>
+
+<div class="stats">
+
+<div class="stat">
+<h3>19</h3>
+<p>Founder Age</p>
+</div>
+
+<div class="stat">
+<h3>∞</h3>
+<p>Vision Timeline</p>
+</div>
+
+<div class="stat">
+<h3>0</h3>
+<p>Shortcuts Taken</p>
+</div>
+
+</div>
+
 </section>
 
 <section id="founders">
-  <div class="label">02 • FOUNDERS</div>
 
-  <div class="people">
-    <div class="person">
-      <img src="https://i.ibb.co/rR429p76/IMG-2214.jpg">
-      <div>
-        <h3>Kunal</h3>
-        <span>FOUNDER • AGE 19</span>
-        <p>
-          Kunal started XELVIRO with belief, discipline, and patience.
-          He represents a generation that builds quietly and thinks long-term.
-        </p>
-      </div>
-    </div>
+<div class="label">02 • FOUNDERS</div>
 
-    <div class="person reverse">
-      
-      
-  </div>
+<div class="people">
+
+<div class="person">
+
+<img src="https://i.ibb.co/rR429p76/IMG-2214.jpg">
+
+<div>
+
+<h3>Kunal</h3>
+
+<span>FOUNDER • AGE 19</span>
+
+<p>
+
+Kunal started XELVIRO with belief,
+discipline, and patience.
+
+He represents a generation that builds quietly
+and thinks long-term.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <section id="links">
-  <div class="label">03 • LINKS</div>
-  <h2>Our Presence</h2>
 
-  <div class="embeds">
-    <a class="embed" href="https://instagram.com/xelviro" target="_blank">
-      <span>INSTAGRAM</span>
-      <h4>@xelviro</h4>
-      <p>Behind the scenes & brand evolution</p>
-    </a>
+<div class="label">03 • LINKS</div>
 
-    <a class="embed" href="https://youtube.com" target="_blank">
-      <span>YOUTUBE</span>
-      <h4>XELVIRO Studio</h4>
-      <p>Creative process & future drops</p>
-    </a>
+<h2>Our Presence</h2>
 
-    <a class="embed" href="mailto:shrisantcntc21@gmail.com">
-      <span>CONTACT</span>
-      <h4>Email Us</h4>
-      <p>Collaborations & inquiries</p>
-    </a>
-  </div>
+<div class="embeds">
+
+<a class="embed" href="https://instagram.com/xelviro">
+
+<span>INSTAGRAM</span>
+
+<h4>@xelviro</h4>
+
+<p>Behind the scenes & brand evolution</p>
+
+</a>
+
+<a class="embed" href="https://youtube.com">
+
+<span>YOUTUBE</span>
+
+<h4>XELVIRO Studio</h4>
+
+<p>Creative process & future drops</p>
+
+</a>
+
+<a class="embed" href="mailto:shrisantcntc21@gmail.com">
+
+<span>CONTACT</span>
+
+<h4>Email Us</h4>
+
+<p>Collaborations & inquiries</p>
+
+</a>
+
+</div>
+
 </section>
 
 <footer>
-  © 2025 XELVIRO — Built Young. Built Fearless.
+
+© 2025 XELVIRO — Built Young. Built Fearless.
+
 </footer>
 
 <script>
-const obs=new IntersectionObserver(e=>{
-  e.forEach(x=>x.isIntersecting&&x.target.classList.add("show"))
-},{threshold:.2});
-document.querySelectorAll("section").forEach(s=>obs.observe(s));
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add("show")
+}
+})
+},{threshold:.2})
+
+document.querySelectorAll("section")
+.forEach(section=>observer.observe(section))
+
 </script>
 
 </body>
